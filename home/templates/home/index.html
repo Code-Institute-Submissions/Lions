@@ -2,42 +2,83 @@
 {% load static %}
 
 {% block content %}
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
-            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
-            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
-        </ol>
+    <div id="main_carousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-            <img src="..." class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </div>
-            </div>
-            <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-            </div>
-            <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-            </div>
-            </div>
+            {% for slides in slides %}   
+                <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
+                    <img src="{{ slides.image_url }}" class="d-block w-100" alt="{{ slides.name }}">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{ slides.name }}</h5>
+                        <p>{{ slides.text }}</p>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
+        <a class="carousel-control-prev" href="#main_carousel" role="button" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
+        <a class="carousel-control-next" href="#main_carousel" role="button" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </a>
+    </div>
+
+    <div class="bg-vd-brown">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Welcome to Lions Gymnasium</h2>
+                    <p>We are a family run, friendly welcoming gym for all</p>
+                    <p>We are the biggest in the area, boasting a 14,000sqft facility.</p>
+                    <p>We are the most diverse and best equipped with over 200 pieces of equipment.</p>
+                    <p>We have the best opening hours 06:00am-09:30pm during the week and 07:00am-08:00pm over the weekends.</p>
+                    <p>We have the best membership rates in the area with Monthly Gym Membership from only £30 with no joining fees or contracts.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-d-bronze">
+        <div class="container"> 
+            <div class="row">    
+                <div class="col-12">
+                    <h2>Why Train at Lions</h2>
+                    <p>
+                        Whether you're new to the gym, into fitness, a professional athlete or just looking to shape up Rhinos is here to help you achieve your goals. 
+                        We pride ourselves in a fantastic experience, with a huge extensive diverse facility and welcoming atmosphere to cater for all.
+                    </p>
+                    <p><strong>14,000sqft</strong> Multi Functional Training Facility</p>
+                    <p>Functional, Bodybuilding, Cardiovascular & Strength</p> 
+                    <p><strong>Family run</strong></p>
+                    <p>Honest and <strong>welcoming</strong> environment to train</p>
+                    <p>We offer a <strong>huge range</strong> of Studio Classes</p>
+                    <p>We are a <strong>Hammer Strength</strong> Affiliated training centre</p>
+                    <p>We boast a huge range and array of equipment</p>
+                    <p><strong>Personal Training</strong> services are available</p>
+                    <p>Shower and Changing Facilities</p>
+                    <p><strong>No Contracts or Joining Fees</strong></p>
+                    <p>Free On-Site Parking</p>
+                    <p>Functional Area</p>
+                    <p><strong>Outdoor Gym</strong></p>
+                    <p>Superb Opening Times</p>
+                    <p>Incredible Prices</p>
+                    <p>Memberships from <strong>0.87p/day</strong></p>
+                </div>
+                <div class="col-12 col-md-4">
+                    <h6>Helpful Staff</h6>
+                    <hr>
+                    <p>At Rhino's, we're committed to help you get into shape. Ask our friendly staff, and they will be able to advise on the best workouts for you.</p>
+                </div>
+                <div class="col-12 col-md-4">
+                    <h6>Great Prices</h6>
+                    <hr>
+                    <p>We have some superb facilities and with the lowest prices in Stamford and the surrounding area.</p>
+                </div><div class="col-12 col-md-4">
+                    <h6>Diversity</h6>
+                    <hr>
+                    <p>As well as 10,000sqft gym floor, we offer studio classes, an extensive functional area with sprint track & outdoor gym which is one of a kind!</p>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

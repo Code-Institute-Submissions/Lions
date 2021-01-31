@@ -22,9 +22,15 @@
 
 ### Media
 Images came from the following sources:
-
+* opening-times.jpg - https://www.snowdome.co.uk/fitness-spa/snowdome-fitness/gym/
+* gym-front - https://www.pinterest.co.uk/pin/153122456063737469/
+* facilities.jpg - https://www.trilogyleisure.co.uk/centres/peterborough-gym/
+* gym-equipment.jpg - https://www.westminster.ac.uk/about-us/visit-us/sports-facilities/regent-street-gym
+* gym-treadmills.jpg - https://blog.nasm.org/how-to-clean-your-gym
 
 Text used within the project came from the following sources:
+
+* https://www.rhinosgymnasium.co.uk/
 
 ### Acknowledgement
 

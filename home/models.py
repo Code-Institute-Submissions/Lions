@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 
-class slideshow(models.Model):
+class Slideshow(models.Model):
 
     name = models.CharField(max_length=254)
     text = models.TextField(max_length=254)

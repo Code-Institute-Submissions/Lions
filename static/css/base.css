@@ -2,6 +2,16 @@ html {
     width: 100%;
 }
 
+h2, 
+h6 {
+    color: #B16D12;
+}
+
+.container {
+    color: #fff;
+    text-align: center;
+}
+
 /* from Bulma */
 
 .icon {
@@ -22,8 +32,12 @@ html {
     background-color: #140901;
 }
 
-.bg-aztec-gold {
-    background-color: #C69452;
+.bg-vd-brown {
+    background-color: #2F1502;
+}
+
+.bg-d-bronze {
+    background-color: #8A4900;
 }
 
 .btn-d-bronze {
@@ -44,3 +58,10 @@ html {
 .nav-link:hover {
     color: #8A4900;
 }
+
+/********************************* index */   
+
+.carousel img {
+    height: 440px;
+}
+
