@@ -1,0 +1,46 @@
+html {
+    width: 100%;
+}
+
+/* from Bulma */
+
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* bootstrap extended classes */
+
+.text-l-brown {
+    color: #B16D12;
+}
+
+.bg-smoky-black {
+    background-color: #140901;
+}
+
+.bg-aztec-gold {
+    background-color: #C69452;
+}
+
+.btn-d-bronze {
+    color: #fff;
+    background-color: #8A4900;
+    border-color: #8A4900;
+}
+
+/********************************* header/navbar */   
+
+.navbar-brand, 
+.nav-link {
+    text-transform: uppercase;
+    color: #B16D12;
+}
+
+.navbar-brand:hover, 
+.nav-link:hover {
+    color: #8A4900;
+}

@@ -34,9 +34,39 @@
     </head>
     <body>
         <header>
-
+            <div class="bg-smoky-black">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="{% url 'home' %}">
+                                <span class="icon">
+                                    <i class="fas fa-paw"></i>
+                                </span>
+                                Lions
+                            </a>
+                            <div class="justify-end">
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                                    <div class="navbar-nav">
+                                        <a class="nav-link" href="#">Subscriptions</a>
+                                        {% if user.is_authenticated %}
+                                            <a class="nav-link" href="#">Profile</a>
+                                            <a class="nav-link" href="#">Logout</a>
+                                        {% else %}
+                                            <a class="nav-link" href="#">Login</a>
+                                            <a class="nav-link" href="#">Register</a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
         </header>
-        
+
         {% if  messages %}
             <div class="message-container"></div>
         {% endif %}
@@ -44,14 +74,39 @@
         {% block page_header %}
         {% endblock %}
 
-        {% block content %}
-        {% endblock %}
+        <div class="bg-aztec-gold">
+            <div class="container">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
 
         {% block postloadjs %}
         {% endblock %}
         
         <footer>
- 
+            <div class="bg-smoky-black p-4">
+                <div class="container text-center">
+                    <div class="row text-l-brown ">
+                        <div class="col-12">
+                            <h2>Opening Times</h2>
+                        </div>
+                        <div class="col-6">
+                            <p>Mon - Fri</p>
+                            <p>Sat - Sun</p>
+                        </div>
+                        <div class="col-6">
+                            <p>6:00am - 9:30pm</p>
+                            <p>7:00am - 8:00pm</p>
+                        </div>
+                        <div class="col-12 ">
+                            <a href="" class="btn btn-d-bronze">
+                                <h3>Contact Us</h3>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </footer>
     </body>
 </html>
