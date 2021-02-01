@@ -7,7 +7,7 @@
             {% for slides in slides %}   
                 <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
                     <img src="{{ slides.image_url }}" class="d-block w-100" alt="{{ slides.name }}">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption">
                         <h5>{{ slides.name }}</h5>
                         <p>{{ slides.text }}</p>
                     </div>
@@ -25,7 +25,7 @@
     </div>
 
     <div class="bg-vd-brown">
-        <div class="container">
+        <div class="container p-3">
             <div class="row">
                 <div class="col-12">
                     <h2>Welcome to Lions Gymnasium</h2>
@@ -39,10 +39,10 @@
         </div>
     </div>
     <div class="bg-d-bronze">
-        <div class="container"> 
+        <div class="container p-3"> 
             <div class="row">    
-                <div class="col-12">
-                    <h2>Why Train at Lions</h2>
+                <div class="col-12 col-md-6">
+                    <h2 class="text-smoky-black">Why Train at Lions</h2>
                     <p>
                         Whether you're new to the gym, into fitness, a professional athlete or just looking to shape up Rhinos is here to help you achieve your goals. 
                         We pride ourselves in a fantastic experience, with a huge extensive diverse facility and welcoming atmosphere to cater for all.
@@ -55,28 +55,23 @@
                     <p>We are a <strong>Hammer Strength</strong> Affiliated training centre</p>
                     <p>We boast a huge range and array of equipment</p>
                     <p><strong>Personal Training</strong> services are available</p>
-                    <p>Shower and Changing Facilities</p>
-                    <p><strong>No Contracts or Joining Fees</strong></p>
-                    <p>Free On-Site Parking</p>
-                    <p>Functional Area</p>
-                    <p><strong>Outdoor Gym</strong></p>
-                    <p>Superb Opening Times</p>
-                    <p>Incredible Prices</p>
-                    <p>Memberships from <strong>0.87p/day</strong></p>
                 </div>
-                <div class="col-12 col-md-4">
-                    <h6>Helpful Staff</h6>
-                    <hr>
-                    <p>At Rhino's, we're committed to help you get into shape. Ask our friendly staff, and they will be able to advise on the best workouts for you.</p>
-                </div>
-                <div class="col-12 col-md-4">
-                    <h6>Great Prices</h6>
-                    <hr>
-                    <p>We have some superb facilities and with the lowest prices in Stamford and the surrounding area.</p>
-                </div><div class="col-12 col-md-4">
-                    <h6>Diversity</h6>
-                    <hr>
-                    <p>As well as 10,000sqft gym floor, we offer studio classes, an extensive functional area with sprint track & outdoor gym which is one of a kind!</p>
+                <hr class="d-block d-md-none">
+                <div class="col-12 col-md-6 p-3">
+                    <div class="col-12">
+                        <h6>Helpful Staff</h6>
+                        <hr>
+                        <p>At Rhino's, we're committed to help you get into shape. Ask our friendly staff, and they will be able to advise on the best workouts for you.</p>
+                    </div>
+                    <div class="col-12">
+                        <h6>Great Prices</h6>
+                        <hr>
+                        <p>We have some superb facilities and with the lowest prices in Stamford and the surrounding area.</p>
+                    </div><div class="col-12">
+                        <h6>Diversity</h6>
+                        <hr>
+                        <p>As well as 10,000sqft gym floor, we offer studio classes, an extensive functional area with sprint track & outdoor gym which is one of a kind!</p>
+                    </div>
                 </div>
             </div>
         </div>

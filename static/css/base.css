@@ -28,6 +28,10 @@ h6 {
     color: #B16D12;
 }
 
+.text-smoky-black {
+    color: #140901;
+}
+
 .bg-smoky-black {
     background-color: #140901;
 }
@@ -48,10 +52,10 @@ h6 {
 
 /********************************* header/navbar */   
 
-.navbar-brand, 
-.nav-link {
-    text-transform: uppercase;
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-nav .nav-link {
     color: #B16D12;
+    text-transform: uppercase;
 }
 
 .navbar-brand:hover, 
@@ -59,9 +63,25 @@ h6 {
     color: #8A4900;
 }
 
-/********************************* index */   
+.navbar-dark {
+    color: #B16D12;
+}
+
+.navbar-toggler {
+    color: #B16D12;
+    background-color: #2F1502;
+}
+
+/********************************* index */
 
 .carousel img {
     height: 440px;
 }
 
+/********************************* Media Queries */
+
+@media (max-width: 768px) {
+    .carousel img{
+        height: 300px;
+    }
+}
