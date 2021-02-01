@@ -2,27 +2,31 @@
 {% load static %}
 
 {% block content %}
-    <div id="main_carousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            {% for slides in slides %}   
-                <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
-                    <img src="{{ slides.image_url }}" class="d-block w-100" alt="{{ slides.name }}">
-                    <div class="carousel-caption">
-                        <h5>{{ slides.name }}</h5>
-                        <p>{{ slides.text }}</p>
-                    </div>
+    <div class="bg-smoky-black">  
+        <div class="">
+            <div id="main_carousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% for slides in slides %}   
+                        <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
+                            <img src="{{ slides.image_url }}" class="d-block w-100" alt="{{ slides.name }}">
+                            <div class="carousel-caption">
+                                <h5>{{ slides.name }}</h5>
+                                <p>{{ slides.text }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
-            {% endfor %}
+                <a class="carousel-control-prev" href="#main_carousel" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#main_carousel" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </a>
+            </div>
         </div>
-        <a class="carousel-control-prev" href="#main_carousel" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#main_carousel" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </a>
-    </div>
+    </div>  
 
     <div class="bg-vd-brown">
         <div class="container p-3">

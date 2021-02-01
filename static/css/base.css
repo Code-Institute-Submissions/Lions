@@ -20,6 +20,7 @@ h6 {
     justify-content: center;
     height: 1.5rem;
     width: 1.5rem;
+    color: #B16D12;
 }
 
 /* bootstrap extended classes */
@@ -48,6 +49,22 @@ h6 {
     color: #140901;
     background-color: #8A4900;
     border-color: #8A4900;
+}
+
+/* font awesome extended classes */
+
+.fa-xl {
+    font-size: 3rem;
+}
+
+/* forms */
+
+form {
+    text-align: left;
+}
+
+form input, button, p{
+    margin: 10px 0;
 }
 
 /********************************* header/navbar */   
