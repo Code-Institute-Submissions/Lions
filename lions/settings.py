@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     "home",
+    "subscriptions",
 
     # Other
     "crispy_forms",

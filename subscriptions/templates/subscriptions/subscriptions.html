@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="bg-vd-brown">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="p-4">
+                        {% for sub in subscriptions %}
+                            <a href="#"> 
+                                <h5>{{ sub.name }} - £{{ sub.price }}</h5>
+                                <p>{{ sub.description }}</p>
+                            </a>
+                            <hr>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <p class="p-2">
+                        Rhino's is open to anyone and everyone from the complete beginner to the fitness enthusiast.
+                    </p>
+                    <p class="p-2">
+                        Fed up of too many confusing different membership schemes, joining fees and contracts? Well Rhino's has the answer!
+                    </p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">No Contracts</li>
+                        <li class="list-group-item">No Hidden Fees </li>
+                        <li class="list-group-item">No Small Print</li>
+                    </ul>
+                    <p class="p-2">
+                        Just simple one off costs, our price plan suits everyones budgets whether you want a one-off session, or a monthly membership, we can accommodate
+                    </p>
+                    <p class="p-2">
+                        Rhinos operates a finger print scanning system, so no lost membership cards or administration fees!
+                    </p>
+                    <p class="p-2">
+                        After a voluntary induction and completed form you can use the whole gymnasium facilities, however classes that are offered will incur an additional cost.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -2,7 +2,8 @@ html {
     width: 100%;
 }
 
-h2, 
+h2,
+h5, 
 h6 {
     color: #B16D12;
 }
@@ -10,6 +11,23 @@ h6 {
 .container {
     color: #fff;
     text-align: center;
+}
+
+.list-group-item {
+    background-color: transparent;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    color: grey;
+}
+
+a h5:hover{
+    color: #8A4900
 }
 
 /* from Bulma */
@@ -21,6 +39,10 @@ h6 {
     height: 1.5rem;
     width: 1.5rem;
     color: #B16D12;
+}
+
+.icon:hover {
+    color: #8A4900
 }
 
 /* bootstrap extended classes */
