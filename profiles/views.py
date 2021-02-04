@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib import messages
 
 from .models import UserProfile
+from .forms import UserProfileForm
 
 # Create your views here.
 
@@ -8,10 +10,20 @@ from .models import UserProfile
 def profile(request):
     """ Display user's profile """
     profile = get_object_or_404(UserProfile, user=request.user)
+    # commented out until revelvant
+    # subscriptions = profile.subscriptions.all()
 
+    if request.method == "POST":
+        form = UserProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Profile updated successfully")
+
+    form = UserProfileForm(instance=profile)
     template = "profiles/profile.html"
     context = {
-        "profile": profile,
+        "form": form,
+        # "subscriptions": subscriptions,
     }
 
     return render(request, template, context)

@@ -2,6 +2,25 @@
 {% load static %}
 
 {% block content %}
-    <h2>My Profile</h2>
-    {{ profile }}
+<div class="bg-vd-brown">
+    <div class="container">
+        <h2>My Profile</h2>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <p>Default Billing Information</p>
+                <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <div class="text-center">
+                        <button class="btn btn-d-bronze ">Update</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 col-md-6">
+                <p>Subscription History</p>
+                {{ subscriptions }}
+            </div>
+        </div>
+    </div>
+</div>    
 {% endblock %}
