@@ -3,6 +3,7 @@ html {
 }
 
 h2,
+h3,
 h5, 
 h6 {
     color: #B16D12;
@@ -23,11 +24,7 @@ a {
 }
 
 a:hover {
-    color: grey;
-}
-
-a h5:hover{
-    color: #8A4900
+    color: #fff;
 }
 
 /* from Bulma */
@@ -41,7 +38,7 @@ a h5:hover{
     color: #B16D12;
 }
 
-.icon:hover {
+nav .icon:hover {
     color: #8A4900
 }
 
