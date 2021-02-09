@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "home",
     "subscriptions",
     "profiles",
+    "signup",
 
     # Other
     "crispy_forms",

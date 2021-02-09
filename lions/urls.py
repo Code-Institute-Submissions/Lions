@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include("home.urls")),
     path('profile/', include("profiles.urls")),
     path('subscriptions/', include("subscriptions.urls")),
+
 ]
