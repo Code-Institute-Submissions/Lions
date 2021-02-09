@@ -8,7 +8,7 @@ class SignupSubscriptionAdminInline(admin.TabularInline):
         max_num = 1
 
         return max_num
-    
+
     model = SignupSubscription
 
 
