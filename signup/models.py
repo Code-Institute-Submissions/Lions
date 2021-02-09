@@ -15,12 +15,13 @@ class Signup(models.Model):
     first_name = models.CharField(max_length=25, null=False, blank=False)
     last_name = models.CharField(max_length=25, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    gender = [
+    gender = models.CharField(max_length=10, choices=[
         ("male", "Male"),
         ("female", "Female"),
         ("other", "Other")
-    ]
+    ])
     dob = models.DateField(null=False, blank=False)
+    date = models.DateField(auto_now=True)
 
     def __str__(self):
         return self
