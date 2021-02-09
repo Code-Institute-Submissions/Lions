@@ -1,5 +1,4 @@
 from django.db import models
-import datetime
 
 # Create your models here.
 
@@ -15,7 +14,7 @@ class Category(models.Model):
     duration = models.DurationField()
 
     def __str__(self):
-        return self.name
+        return self.friendly_name
 
 
 class Subscription(models.Model):
