@@ -2,7 +2,7 @@ from django import forms
 from .models import SubscriptionDetails
 
 
-class SignupForm(froms.ModelForm):
+class SignupForm(forms.ModelForm):
     class Meta:
         model = SubscriptionDetails
         fields = (

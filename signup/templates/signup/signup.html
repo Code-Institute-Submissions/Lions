@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bg-vd-brown">
+    <div class="container">
+        <h2>Signup Form</h2>
+    </div>
+    <div>
+        <p>Fill out the form below to finish signing up for your subscription</p>
+        <form action="{% url 'signup' %}" method="POST" id="signup-form">
+            {% csrf_token %}
+            <div>
+                {{ signup_form|crispy }}
+            </div>
+            <!-- Stripe card element will go here -->
+            <div id="card-element"></div>
+
+            <!-- Stripe errors display here -->
+            <div id="card-errors" role="alert"></div>
+
+            <button id="submit-button">
+                <span>Join Us!</span>
+            </button>
+        </form>
+    </div>
+</div>    
+{% endblock %}

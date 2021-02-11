@@ -9,7 +9,7 @@
                         <h3>You must be logged in to signup for a subscription</h3>
                         {% for sub in subscriptions %}
                             <div>
-                                <a href=""> 
+                                <a href="{% url 'signup' %}"> 
                                     <h5>{{ sub.name }} - £{{ sub.price }}</h5>
                                     <p>{{ sub.description }}</p>
                                 </a>
