@@ -24,6 +24,9 @@
     3. Click left and right arrows to change image 
     4. Image change to next or previous image 
 
+2. Remember My Details:
+    ...
+
 This didn't work the first few attempts, this was due to the confusion between the jinja templating language and the django template language. After some research I used forloop.counter, over the 
 jinja loop.index. After this change was made the carousel worked as expected allowing for admins to add new carousel slides without consulting an engineer.
 ## Deployment

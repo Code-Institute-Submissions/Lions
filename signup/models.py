@@ -21,7 +21,7 @@ class SubscriptionDetails(models.Model):
     ])
     date = models.DateTimeField(auto_now_add=True)
     dob = models.DateField()
-    subscription_type = models.ForeignKey(Subscription, null=False, blank=False, on_delete=models.CASCADE)
+    subscription_type = models.ForeignKey(Subscription, null=False, blank=True, on_delete=models.CASCADE)
     subscription_price = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False)
 
     # from https://github.com/ckz8780/boutique_ado_v1/blob/faaa31bcbd1bcc5fdf7d54c57d51c031df9d7460/checkout/models.py

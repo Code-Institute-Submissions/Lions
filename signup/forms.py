@@ -25,12 +25,14 @@ class SignupForm(forms.ModelForm):
             "full_name": "Full Name",
             "email": "Email",
             "phone_number": "Phone Number",
-            "subscription_type": "Subscription Type",
             "dob": "DOB",
             "gender": "Gender",
+            "subscription_type": "Subscription Type"
         }
 
         self.fields["full_name"].widget.attrs["autofocus"] = True
+        self.fields['subscription_type'].widget = forms.HiddenInput()
+
         for field in self.fields:
             if self.fields[field].required:
                 placeholder = f"{placeholders[field]} *"
