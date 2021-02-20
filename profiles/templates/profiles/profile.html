@@ -8,7 +8,7 @@
         <p>Hello {{ profile }}</p>
         <div class="row">
             <div class="col-12 col-md-6">
-                <p>Default Billing Information</p>
+                <p>Default Information</p>
                 <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     {{ form|crispy }}
@@ -19,7 +19,28 @@
             </div>
             <div class="col-12 col-md-6">
                 <p>Subscription History</p>
-                {{ subscriptions }}
+                <div class="subscription-history table-responsive">
+                    <table class="table table-sm table-borderless">
+                        <thead>
+                            <tr>
+                                <th>Order Number</th>
+                                <th>Date</th>
+                                <th>Subscription Type</th>
+                                <th>Price</th>
+                            </tr>
+                            <tbody>
+                                {% for subscription in subscriptions %}
+                                    <tr>
+                                        <td>{{ subscription.order_number }}</td>
+                                        <td>{{ subscription.date }}</td>
+                                        <td>{{ subscription.subscription_type }}</td>
+                                        <td>£{{ subscription.subscription_price }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </thead>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

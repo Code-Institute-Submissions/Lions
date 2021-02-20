@@ -11,6 +11,7 @@ class SubscriptionDetailsAdmin(admin.ModelAdmin):
     )
 
     fields = (
+        "user_profile",
         "full_name",
         "email",
         "phone_number",
@@ -22,6 +23,7 @@ class SubscriptionDetailsAdmin(admin.ModelAdmin):
     list_display = (
         "order_number",
         "date",
+        "user_profile",
         "full_name",
         "subscription_type",
         "subscription_price"

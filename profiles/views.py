@@ -4,14 +4,14 @@ from django.contrib import messages
 from .models import UserProfile
 from .forms import UserProfileForm
 
+from signup.models import SubscriptionDetails
+
 # Create your views here.
 
 
 def profile(request):
     """ Display user's profile """
     profile = get_object_or_404(UserProfile, user=request.user)
-    # commented out until revelvant
-    # subscriptions = profile.subscriptions.all()
 
     if request.method == "POST":
         form = UserProfileForm(request.POST, instance=profile)
@@ -19,12 +19,13 @@ def profile(request):
             form.save()
             messages.success(request, "Profile updated successfully")
 
+    subscriptions = profile.subscriptions.all()
     form = UserProfileForm(instance=profile)
+
     template = "profiles/profile.html"
     context = {
         "form": form,
-        "profile": profile,
-        # "subscriptions": subscriptions,
+        "subscriptions": subscriptions,
     }
 
     return render(request, template, context)

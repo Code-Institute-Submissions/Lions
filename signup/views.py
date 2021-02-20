@@ -6,6 +6,9 @@ from subscriptions.models import Subscription
 
 from .forms import SignupForm
 
+from profiles.forms import UserProfileForm
+from profiles.models import UserProfile
+
 import stripe
 
 
@@ -40,7 +43,20 @@ def signup(request, sub_id):
 
             return redirect("signup", sub_id=sub_id)
 
-    signup_form = SignupForm
+    if request.user.is_authenticated:
+        try:
+            profile = UserProfile.objects.get(user=request.user)
+            signup_form = SignupForm(initial={
+                "full_name": profile.user.get_full_name(),
+                "email": profile.user.email,
+                "phone_number": profile.default_phone_number,
+                "dob": profile.default_dob,
+                "gender": profile.default_gender,
+            })
+        except UserProfile.DoesNotExist:
+            signup_form = SignupForm()
+    else:
+        signup_form = SignupForm()
 
     subscription_type = get_object_or_404(Subscription, id=sub_id)
     subscription_price = subscription_type.price
@@ -76,11 +92,27 @@ def payment_success(request, order_number):
     """
     save_info = request.session.get("save_info")
     order = get_object_or_404(SubscriptionDetails, order_number=order_number)
+
+    # from https://github.com/ckz8780/boutique_ado_v1/blob/be009dd6c8db8c9cbc18aa5b8dd8a04daa194ed0/checkout/views.py#L143
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        # Attach the user's profile to the order
+        order.user_profile = profile
+        order.save()
+
+    if save_info:
+        profile_data = {
+            "default_email": order.email,
+            "default_phone_number": order.phone_number,
+            "default_dob": order.dob,
+            "default_gender": order.gender,
+        }
+        user_profile_form = UserProfileForm(profile_data, instance=profile)
+        if user_profile_form.is_valid():
+            user_profile_form.save()
+
     messages.success(request, f"Signup Successful! Your order number is {order_number}.\
     A confirmation email will be sent to {order.email}.")
-
-    if "sub" in request.session:
-        del request.session["sub"]
 
     template = "signup/payment_success.html"
     context = {
