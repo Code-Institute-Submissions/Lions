@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+
 from .models import SubscriptionDetails
 from subscriptions.models import Subscription
 
@@ -86,6 +89,7 @@ def signup(request, sub_id):
     return render(request, template, context)
 
 
+
 def payment_success(request, order_number):
     """
     Handle successful checkouts
@@ -111,8 +115,26 @@ def payment_success(request, order_number):
         if user_profile_form.is_valid():
             user_profile_form.save()
 
+    # Sends confirmation email
+
+    cust_email = order.email
+    subject = render_to_string(
+        "signup/confirmation_emails/confirmation_email_subject.txt",
+        {"order": order})
+
+    body = render_to_string(
+        "signup/confirmation_emails/confirmation_email_body.txt",
+        {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL})
+    send_mail(
+        subject,
+        body,
+        settings.DEFAULT_FROM_EMAIL,
+        [cust_email],
+    )
+
     messages.success(request, f"Signup Successful! Your order number is {order_number}.\
     A confirmation email will be sent to {order.email}.")
+
 
     template = "signup/payment_success.html"
     context = {
