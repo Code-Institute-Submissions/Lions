@@ -10,17 +10,19 @@ class SubscriptionDetails(models.Model):
     class Meta:
         verbose_name_plural = "Subscription details"
 
+    Choices = [
+        ("male", "Male"),
+        ("female", "Female"),
+        ("other", "Other")
+    ]
+
     order_number = models.CharField(max_length=32, null=False, blank=False, editable=False)
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    gender = models.CharField(max_length=10, choices=[
-        ("male", "Male"),
-        ("female", "Female"),
-        ("other", "Other")
-    ])
+    gender = models.CharField(max_length=10, choices=Choices)
     date = models.DateTimeField(auto_now_add=True)
-    dob = models.DateField()
+    dob = models.DateField(null=False, blank=False)
     subscription_type = models.ForeignKey(Subscription, null=False, blank=True, on_delete=models.CASCADE)
     subscription_price = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False)
 
