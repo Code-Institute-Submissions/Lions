@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Subscription
 from .forms import SubscriptionForm
@@ -11,11 +11,13 @@ def all_subscriptions(request):
 
     subscriptions = Subscription.objects.all()
 
+    template = "subscriptions/subscriptions.html"
+
     context = {
         "subscriptions": subscriptions
     }
 
-    return render(request, "subscriptions/subscriptions.html", context)
+    return render(request, template, context)
 
 
 def add_subscription(request):
@@ -26,7 +28,7 @@ def add_subscription(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Successfully added subscription")
-            return redirect(reverse("add_subscription"))
+            return redirect(all_subscriptions)
         else:
             messages.error(request, "Failed to add subscriprion. Please double check the details.")
 
@@ -61,3 +63,11 @@ def edit_subscription(request, subscription_id):
     }
 
     return render(request, template, context)
+
+
+def delete_subscription(request, subscription_id):
+    """ delete a subscription from the store """
+    subscription = get_object_or_404(Subscription, pk=subscription_id)
+    subscription.delete()
+    messages.success(request, "Subscription delete")
+    return redirect(all_subscriptions)

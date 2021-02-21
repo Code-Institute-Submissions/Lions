@@ -12,6 +12,12 @@
                                 <a href="{% url 'signup' sub.id %}"> 
                                     <h5>{{ sub.name }} - £{{ sub.price }}</h5>
                                     <p>{{ sub.description }}</p>
+                                    {% if request.user.is_superuser %}
+                                        <small class="ml-3">
+                                            <a href="{% url 'edit_subscription' sub.id %}">Edit</a>
+                                            <a class="text-danger" href="{% url 'delete_subscription' sub.id %}">Delete</a>
+                                        </small>
+                                    {% endif %}
                                 </a>
                             </div>
                             <hr>
