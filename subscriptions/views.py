@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse, redirect
+from django.contrib import messages
 from .models import Subscription
 from .forms import SubscriptionForm
 
@@ -19,6 +20,15 @@ def all_subscriptions(request):
 
 def add_subscription(request):
     """ Add a new subscription to the store """
+
+    if request.method == "POST":
+        form = SubscriptionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Successfully added subscription")
+            return redirect(reverse("add_subscription"))
+        else:
+            messages.error(request, "Failed to add subscriprion. Please double check the details.")
 
     form = SubscriptionForm()
     template = "subscriptions/add_subscription.html"

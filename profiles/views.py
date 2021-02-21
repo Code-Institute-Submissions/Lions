@@ -18,6 +18,8 @@ def profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Profile updated successfully")
+        else:
+            messages.error(request, "Failed to update profile, please ensure the form is valid.")
 
     subscriptions = profile.subscriptions.all()
     form = UserProfileForm(instance=profile)
