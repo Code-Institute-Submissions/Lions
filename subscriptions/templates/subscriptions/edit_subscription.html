@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="bg-vd-brown">
+    <div class="container">
+        <h2>Edit a Subscription</h2>
+    </div>
+    <div>
+        <p>Fill out the form below to finish signing up for your subscription</p>
+        <form action="{% url 'edit_subscription' subscription.id %}" method="POST" id="add-subscription-form">
+            {% csrf_token %}
+            <div>
+                {{ form|crispy }}
+            </div>
+            <button id="submit-button">
+                <span>Update Subscription</span>
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, redirect
+from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Subscription
 from .forms import SubscriptionForm
@@ -34,6 +34,30 @@ def add_subscription(request):
     template = "subscriptions/add_subscription.html"
     context = {
         "form":  form
+    }
+
+    return render(request, template, context)
+
+
+def edit_subscription(request, subscription_id):
+    """ Edit a subscription in the store """
+    subscription = get_object_or_404(Subscription, pk=subscription_id)
+    if request.method == "POST":
+        form = SubscriptionForm(request.POST, request.FILES, instance=subscription)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Successfully updated subscription")
+            return redirect(all_subscriptions)
+        else:
+            messages.error(request, "Failed to update subscription, Please ensure the form is valid.")
+    else:
+        form = SubscriptionForm(instance=subscription)
+        messages.info(request, f"You are editing {subscription.name}")
+
+    template = "subscriptions/edit_subscription.html"
+    context = {
+        "form":  form,
+        "subscription": subscription,
     }
 
     return render(request, template, context)
