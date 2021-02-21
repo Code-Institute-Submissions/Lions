@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import Subscription
 from .forms import SubscriptionForm
 
@@ -20,8 +21,13 @@ def all_subscriptions(request):
     return render(request, template, context)
 
 
+@login_required
 def add_subscription(request):
     """ Add a new subscription to the store """
+
+    if not request.user.is_superuser:
+        messages.error(request, "Sorry only store owner can do that.")
+        return redirect(reverse("home"))
 
     if request.method == "POST":
         form = SubscriptionForm(request.POST)
@@ -41,8 +47,14 @@ def add_subscription(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_subscription(request, subscription_id):
     """ Edit a subscription in the store """
+
+    if not request.user.is_superuser:
+        messages.error(request, "Sorry only store owner can do that.")
+        return redirect(reverse("home"))
+
     subscription = get_object_or_404(Subscription, pk=subscription_id)
     if request.method == "POST":
         form = SubscriptionForm(request.POST, request.FILES, instance=subscription)
@@ -65,8 +77,14 @@ def edit_subscription(request, subscription_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_subscription(request, subscription_id):
     """ delete a subscription from the store """
+
+    if not request.user.is_superuser:
+        messages.error(request, "Sorry only store owner can do that.")
+        return redirect(reverse("home"))
+
     subscription = get_object_or_404(Subscription, pk=subscription_id)
     subscription.delete()
     messages.success(request, "Subscription delete")
