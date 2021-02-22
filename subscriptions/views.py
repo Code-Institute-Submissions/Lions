@@ -54,7 +54,7 @@ def add_subscription(request):
             messages.success(request, "Successfully added subscription")
             return redirect(all_subscriptions)
         else:
-            messages.error(request, "Failed to add subscriprion. Please double check the details.")
+            messages.error(request, "Failed to add subscription. Please double check the details.")
 
     form = SubscriptionForm()
     template = "subscriptions/add_subscription.html"

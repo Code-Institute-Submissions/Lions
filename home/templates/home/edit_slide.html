@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="bg-vd-brown">
+    <div class="container">
+        <h2>Edit a Slide</h2>
+    </div>
+    <div>
+        <form action="{% url 'edit_slide' slide.id %}" method="POST" id="edit-slide-form">
+            {% csrf_token %}
+            <div>
+                {{ form|crispy }}
+            </div>
+            <button id="submit-button">
+                <span>Update Slide</span>
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

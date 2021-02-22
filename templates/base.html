@@ -56,8 +56,10 @@
                                         {% if request.user.is_authenticated %}
                                             {% if request.user.is_superuser %}
                                                 <a class="nav-link" href="{% url 'categories' %}">Categories</a>
+                                                <a class="nav-link" href="{% url 'slides' %}">Slides</a>
                                                 <a class="nav-link" href="{% url 'add_subscription' %}">Add a Subscription</a>
                                                 <a class="nav-link" href="{% url 'add_category' %}">Add a Category</a>
+                                                <a class="nav-link" href="{% url 'add_slide' %}">Add a Slide</a>
                                             {% endif %}
                                             <a class="nav-link" href="{% url 'profile' %}">Profile</a>
                                             <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>

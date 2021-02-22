@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="bg-vd-brown">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="p-4">
+                        <h3>Slide Management</h3>
+                        <table>
+                            <tr>
+                                <th>Name</th>
+                                <th>Image</th>
+                                <th>Image URL</th>
+                                <th>Text</th>
+                                <th>Manage</th>
+                            </tr>
+                            {% for slide in slides %}
+                                <tr>
+                                    <td>{{ slide.name }}</td>
+                                    <td>{{ slide.image }}</td>
+                                    <td>{{ slide.image_url }}</td>
+                                    <td>{{ slide.text }}</td>
+                                    <td>
+                                        <small class="ml-3">
+                                            <a href="{% url 'edit_slide' slide.id %}">Edit</a>
+                                            <a class="text-danger" href="{% url 'delete_slide' slide.id %}">Delete</a>
+                                        </small>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
