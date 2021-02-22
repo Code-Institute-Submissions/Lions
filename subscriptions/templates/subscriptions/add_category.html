@@ -4,16 +4,16 @@
 {% block content %}
 <div class="bg-vd-brown">
     <div class="container">
-        <h2>Edit a Subscription</h2>
+        <h2>Add Category</h2>
     </div>
     <div>
-        <form action="{% url 'edit_subscription' subscription.id %}" method="POST" id="edit-subscription-form">
+        <form action="{% url 'add_category' %}" method="POST" id="add-category-form">
             {% csrf_token %}
             <div>
                 {{ form|crispy }}
             </div>
             <button id="submit-button">
-                <span>Update Subscription</span>
+                <span>Add Category</span>
             </button>
         </form>
     </div>

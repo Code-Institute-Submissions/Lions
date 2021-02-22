@@ -14,3 +14,10 @@ class SubscriptionForm(forms.ModelForm):
         friendly_names = [(c.id, c.get_friendly_name()) for c in categories]
 
         self.fields["category"].choice = friendly_names
+
+
+class CategoryForm(forms.ModelForm):
+
+    class Meta:
+        model = Category
+        fields = "__all__"

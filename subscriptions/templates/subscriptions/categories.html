@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="bg-vd-brown">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="p-4">
+                        {% for category in categories %}
+                            <div>
+                                <h5>{{ category.name }}</h5>
+                                <p>{{ category.duration }}</p>
+                                {% if request.user.is_superuser %}
+                                    <small class="ml-3">
+                                        <a href="{% url 'edit_category' category.id %}">Edit</a>
+                                        <a class="text-danger" href="{% url 'delete_category' category.id %}">Delete</a>
+                                    </small>
+                                {% endif %}
+                            </div>
+                            <hr>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
