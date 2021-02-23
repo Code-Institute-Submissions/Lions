@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12 col-md-6">
                     <div class="p-4">
-                        <h3>You must be logged in to signup for a subscription</h3>
+                        <h3 class="m-3">You must be logged in to signup for a subscription</h3>
                         {% for sub in subscriptions %}
                             <div>
                                 <a href="{% url 'signup' sub.id %}"> 
@@ -15,6 +15,7 @@
                                     {% if request.user.is_superuser %}
                                         <small class="ml-3">
                                             <a href="{% url 'edit_subscription' sub.id %}">Edit</a>
+                                            <p class="d-inline">/</p>
                                             <a class="text-danger" href="{% url 'delete_subscription' sub.id %}">Delete</a>
                                         </small>
                                     {% endif %}

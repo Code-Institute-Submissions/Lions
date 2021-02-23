@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from django.contrib.auth.decorators import login_required
 
 from .models import SubscriptionDetails
 from subscriptions.models import Subscription
@@ -15,6 +16,7 @@ from profiles.models import UserProfile
 import stripe
 
 
+@login_required
 def signup(request, sub_id):
 
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
@@ -89,7 +91,7 @@ def signup(request, sub_id):
     return render(request, template, context)
 
 
-
+@login_required
 def payment_success(request, order_number):
     """
     Handle successful checkouts

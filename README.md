@@ -1,5 +1,9 @@
 # Lions
 
+Lions is a gymnasium, providing great prices, lovely and helpful staff, as well as a welcoming environment for anyone and everyone. The business works off of a paper system, asking customers
+to fill out physical forms either provided by the staff or printed off of at home. The benefits of the website is that customers are able to signup for a subscription and manage it all from 
+their own homes, with the convenience of a smart device or computer. Staff are also able to see all subscriptions and search the database through the use of Django, whereas they couldn't before.
+
 ## UX
 
 ## Features
@@ -32,6 +36,10 @@ jinja loop.index. After this change was made the carousel worked as expected all
 ## Deployment
 
 ## Credits
+
+### Content
+
+* text used for this project came from [Rhinos](https://www.rhinosgymnasium.co.uk/)
 
 ### Media
 Images came from the following sources:
