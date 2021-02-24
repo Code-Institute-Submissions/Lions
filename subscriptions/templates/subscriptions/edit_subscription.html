@@ -3,19 +3,21 @@
 
 {% block content %}
 <div class="bg-vd-brown">
-    <div class="container">
+    <div class="container p-3">
         <h2>Edit a Subscription</h2>
-    </div>
-    <div>
-        <form action="{% url 'edit_subscription' subscription.id %}" method="POST" id="edit-subscription-form">
-            {% csrf_token %}
-            <div>
-                {{ form|crispy }}
-            </div>
-            <button id="submit-button">
-                <span>Update Subscription</span>
-            </button>
-        </form>
+        <div class="text-l-brown">
+            <form action="{% url 'edit_subscription' category.id %}" method="POST" id="edit-subscription-form">
+                {% csrf_token %}
+                <div>
+                    {{ form|crispy }}
+                </div>
+                <div class="text-center">
+                    <button id="submit-button" class="btn btn-d-bronze btn-lg m-3">
+                        <span>Update Subscription</span>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -3,11 +3,10 @@
 
 {% block content %}
 <div class="bg-vd-brown">
-    <div class="container">
+    <div class="container p-4">
         <h2>My Profile</h2>
-        <p>Hello {{ profile }}</p>
         <div class="row">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-lg-6 p-3">
                 <p>Default Information</p>
                 <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
@@ -17,10 +16,10 @@
                     </div>
                 </form>
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-lg-6 p-3">
                 <p>Subscription History</p>
                 <div class="subscription-history table-responsive">
-                    <table class="table table-sm table-borderless">
+                    <table class="table table-sm table-borderless text-l-brown">
                         <thead>
                             <tr>
                                 <th>Order Number</th>

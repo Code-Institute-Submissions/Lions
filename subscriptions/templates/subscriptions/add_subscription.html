@@ -3,20 +3,22 @@
 
 {% block content %}
 <div class="bg-vd-brown">
-    <div class="container">
-        <h2>Add Subscription</h2>
-    </div>
-    <div>
-        <p>Fill out the form below to finish signing up for your subscription</p>
-        <form action="{% url 'add_subscription' %}" method="POST" id="add-subscription-form">
-            {% csrf_token %}
-            <div>
-                {{ form|crispy }}
-            </div>
-            <button id="submit-button">
-                <span>Add Subscription</span>
-            </button>
-        </form>
+    <div class="container p-3">
+        <h2>Add a Subscription</h2>
+        <div class="text-l-brown">
+            <p>Fill out the form below to add a new subscription</p>
+            <form action="{% url 'add_subscription' %}" method="POST" id="add-subscription-form">
+                {% csrf_token %}
+                <div>
+                    {{ form|crispy }}
+                </div>
+                <div class="text-center">
+                    <button id="submit-button" class="btn btn-d-bronze btn-lg m-3">
+                        <span>Add Subscription</span>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}

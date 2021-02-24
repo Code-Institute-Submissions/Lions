@@ -6,9 +6,10 @@
             <div class="row">
                 <div class="col-12">
                     <div class="p-4">
+                        <h2 class="m-3">Categories</h2>
                         {% for category in categories %}
-                            <div>
-                                <h5>{{ category.name }}</h5>
+                            <div class="p-3">
+                                <h5>{{ category.friendly_name }}</h5>
                                 <p>{{ category.duration }}</p>
                                 {% if request.user.is_superuser %}
                                     <small class="ml-3">

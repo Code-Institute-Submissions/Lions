@@ -20,8 +20,13 @@ def index(request):
     return render(request, "home/index.html", context)
 
 
+@login_required
 def all_slides(request):
     """ A view to return all slides """
+
+    if not request.user.is_superuser:
+        messages.error(request, "Sorry only store owner can do that.")
+        return redirect(reverse("home"))
 
     slides = Slideshow.objects.all()
 
