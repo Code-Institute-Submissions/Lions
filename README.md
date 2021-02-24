@@ -56,6 +56,15 @@ Lions achieves these goals by:
 
 ### Design Choices
 
+* __Colour Scheme:__ Inspired by a lion's own colours, using the color scheme provided by SchemeColor, some colours were slighly lightened or darkened to better follow the flow of the other elements.
+* __Navbar Desktop:__ A black background, with light text, this allows for eyecatching and hard to miss links, so the user is easily able to navigate to the links. The navbar is split into 2 colums, the left most holding the logo and name of the business linking to the home page. And the right most holding the navigation links, this is to split up the two columns making it clear to users where one begins and another ends.
+* __Navbar Mobile:__ The mobile variation uses a customised button, not following the usual black background and opting for a dark brown. Making it clear where the button is. Opening the navbar the links are positioned ontop of eachother.
+* __Footer:__ A simple footer, covering the opening times, this is to inform users who may have missed the information above, or those who are in a rush to view when the business opens and closes.
+* __Home Page:__ At the top of the page is a carousel with the latest news for the site. The purpose of this is to catch the user's attention as soon as the page appears on their screen. This almost forces the user to be aware of the what is going on with the business. Following is a darkened background welcoming users to the website this is to give users a basic understanding for what the business is and stands for. After is a lighter block, this is to make the page more interesting, rather than a continous block of colour, the shifting palette keeps the user focused and receptive to the information.
+* __Subscriptions Page:__ This page is split up into 2 columns that situate ontop of eachother on the mobile view. Headers are a light brown, and informative text is a white. This allows for a clear difference between the 2. The Edit and Delete links that are visible to superusers, are white for the edit and red for the delete making it clear to users that this function should only be done when intended to and avoided when you have no intention to do so. In the second column is white informative text, continuing the theme.
+* __Categories Page:__ Similar to the subscriptions page, without the second column. It follows the same scheme as the mentioned page.
+* __Slides Page:__ This page has a table holding all of the slides and information a superuser may need. T
+
 ### Wireframes
 
 * [Home](wireframes/home.pdf)
@@ -110,7 +119,8 @@ jinja loop.index. After this change was made the carousel worked as expected all
 
 ### Content
 
-* text used for this project came from [Rhinos](https://www.rhinosgymnasium.co.uk/)
+* Text used for this project came from [Rhinos](https://www.rhinosgymnasium.co.uk/)
+* Colour scheme came from [SchemeColor.com](https://www.schemecolor.com/lion-colors.php)
 
 ### Media
 Images came from the following sources:

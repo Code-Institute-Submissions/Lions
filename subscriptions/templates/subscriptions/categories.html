@@ -14,6 +14,7 @@
                                 {% if request.user.is_superuser %}
                                     <small class="ml-3">
                                         <a href="{% url 'edit_category' category.id %}">Edit</a>
+                                        <p class="d-inline">/</p>
                                         <a class="text-danger" href="{% url 'delete_category' category.id %}">Delete</a>
                                     </small>
                                 {% endif %}

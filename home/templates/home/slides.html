@@ -10,7 +10,6 @@
                         <table class="mx-auto">
                             <tr>
                                 <th>Name</th>
-                                <th>Image</th>
                                 <th>Image URL</th>
                                 <th>Text</th>
                                 <th>Manage</th>
@@ -18,12 +17,12 @@
                             {% for slide in slides %}
                                 <tr>
                                     <td>{{ slide.name }}</td>
-                                    <td>{{ slide.image }}</td>
                                     <td>{{ slide.image_url }}</td>
                                     <td>{{ slide.text }}</td>
                                     <td>
                                         <small class="ml-3">
                                             <a href="{% url 'edit_slide' slide.id %}">Edit</a>
+                                            <p class="d-inline">/</p>
                                             <a class="text-danger" href="{% url 'delete_slide' slide.id %}">Delete</a>
                                         </small>
                                     </td>
