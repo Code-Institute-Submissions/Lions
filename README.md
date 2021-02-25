@@ -200,6 +200,11 @@ The process and testing of the add slide, add category and add subscriptions pag
     
 ### Differences Between Desktop and Mobile Versions
 
+* __Navbar:__ On the desktop version the navbar stretches across the top of the screen with all the links visible, whereas on the mobile version the navbar is shrunk down into a button that can expand to reveal all the links.
+* __Home Page:__ The __Why Train at Lions__ blocks go from being side by side to being on top of eachother to avoid the elements becoming too squished. The carousel's height on screen smaller than 768px becomes 300px, rather than 440px.
+* __Subscriptions Page:__ The list of available subscriptions and the text elements sit next to eachother, but as the available screen size reduces the element go on top of eachother.
+* __Profile Page:__ The default details form and the subscription history are side by side on a large desktop, but go to sitting on top of each other on smaller screens.
+
 ## Deployment
 
 ### Local Deployment
