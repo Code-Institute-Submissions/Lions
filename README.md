@@ -202,6 +202,76 @@ The process and testing of the add slide, add category and add subscriptions pag
 
 ## Deployment
 
+### Local Deployment
+
+This project was coded within the [Gitpod IDE](https://www.gitpod.io/) and then pushed to [Github](https://github.com/) using the built in functions.
+
+1. Log into Github.
+2. From the list of repositories on screen, select __lions__.
+3. install the requirements.txt using the "pip3 install -r requirements" terminal command
+4. After this it's as simple as typing "python3 app.py" within the terminal which will run the file
+
+### How to run this project locally
+
+To clone this project into Gitpod you will need:
+
+1. A GitHub account. [Create a Github account here](https://github.com/)
+2. Be using the Chrome browser
+
+After follow these steps:
+
+1. install the [Gitpod Browser Extension](https://gitpod.io)for Chrome.
+2. After installation, restart the browser.
+3. Log into your Gitpod account.
+4. Navigate to the [Github repository](https://github.com/FabianMarsh/lions).
+5. Click the green "Gitpod" button in the top right corner of the repository
+6. This will trigger a new Gitpod workspace to be created from the code in github where you can work locally.
+
+To work on this project within a local IDE such as Gitpod
+
+1. Follow this link to the [Github repository](https://github.com/FabianMarsh/lions).
+2. Under the repository name click "Clone or download".
+3. In the Clone with HTTPs section, copy the clone URL for the repository.
+4. In your local IDE open the terminal.
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type git clone , and then paste the URL you copied in step 3.
+
+git clone https://github.com/FabianMarsh/lions
+
+7. Press Enter. Your local clone will be created.
+
+### Heroku Deployment
+
+To deploy __lions__ to Heroku take the following steps
+
+1. Create a requirements.txt file using the terminal command pip3 freeze > requirements.txt .
+2. Create a Procfile using the terminal command echo web: python3 app.py > Procfile .
+3. git add , git commit , and git push using the terminal commands to push to Github.
+4. Sign into or register to [Heroku](https://dashboard.heroku.com/apps).
+5. Create a new app on Heroku by clicking the "New" button in the dashboard. Give it a bespoke name and set the region to Europe
+6. From the Heroku dashboard of the newly made created application, click on "Deployment method" and select Github.
+7. Confirm the linking of Heroku and the GitHub repository.
+8. Within the Heroku dashboard for the application, click on "Settings" then "Reveal Config Vars".
+9. Set the following config vars:
+
+Key | Value
+--- | -----
+DEBUG | FALSE
+IP | 0.0.0.0
+PORT | 5000
+SECRET_KEY | <your_secret_key>
+MONGO_URI | mongodb+srv://FabianM:2DzJy3w4S9o191zD@my-first-cluster.lyiaq.mongodb.net/dnd_character_creator?retryWrites=true&w=majority
+MONGO_DBNAME | dnd_character_creator
+
+* To get your MONGO_URI read the MongoDB Atlas documentation [here](https://docs.mongodb.com/manual/reference/connection-string/)
+
+10. In the daskboard click "Deploy"
+
+11. In the "Manual Deployment" section of this page, make sure the master branch is selected and click on "Deploy Branch".
+
+12. The site has been successfully deployed
+
+
 ## Credits
 
 ### Content
