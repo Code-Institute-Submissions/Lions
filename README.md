@@ -174,10 +174,30 @@ The process for getting the price into the payment intent took many forms, this 
 6. Subscription History:
     1. Load profile page
     2. Ensure table loads correctly
-    3. 
+    3. Signup for a subscription using the signup form
+    4. navigate back to the profile view, subscription has been input into table
+
+7. Signup Form:
+    1. Navigate to subscriptions view
+    2. Select subscription type, be pushed to signup form.
+    3. Input invalid details, form gives error.
+    4. Input valid details. Be taken to payment success page.
+
+There were many issues with this aspect of the project and what most of the production time was spent on. I had little understanding of Django and how to set up a model which was the first hurdle. 
+After this the intial form of the form was a 3 step process that the website would guide the user through. The issue with this was accessing object data beyond the first step, as JSON wouldn't allow a non string 
+type object to sent through a cookie, which caused trouble for some of the validation aspects. The final step was passing through the subscription type and getting the payment amount for the payment intent,
+this needed to done before stripe was intialised and present on the page for the user to finalised. So having this on a separate page felt like a must. After some time I decided to shift focus and make the approuch 
+simpler as the production deadline was coming up. Thus the final form involves selecting the subscription type, passing the ID to the view and having all the important information processed by the view, such as 
+the payment intent before the user can witness it.
+
+8. Additions Pages:
+    1. Navigate to add subscriptions link
+    2. Fill out form
+    3. Click add subscription button
+    4. Navigate to subscriptions page to see if the subscription has been added to the database successfully and is visible to users
+
+The process and testing of the add slide, add category and add subscriptions page are all the same, all have been tested, the issues were variable names not being changed within the views, as well as the templates.
     
-
-
 ### Differences Between Desktop and Mobile Versions
 
 ## Deployment
