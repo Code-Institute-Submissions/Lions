@@ -41,6 +41,15 @@ a:hover {
     color: #B16D12;
 }
 
+.icon-smoky-black {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+    color: #140901;
+}
+
 nav .icon:hover {
     color: #8A4900
 }

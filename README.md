@@ -83,7 +83,37 @@ Lions achieves these goals by:
 
 ### Existing Features
 
+* __Logo:__ Presents the logo of the business to the user, also acts as a home link.
+* __Navbar:__ Holds navigation links, which allow user to navigate around the site, on mobile view it becomes an expandable button, taking up less screen realestate.
+* __Carousel:__ An informative slideshow which displays current news and updates within the business.
+* __Welcome Text:__ Informs the user what the business is about and what they stand for.
+* __Why Train Text:__ Encourages users to signup for a subscription.
+* __Footer:__ Holds opening time information in a place that is consitant and easy to find by users.
+* __Login:__ Enables user to access their account.
+* __Register:__ Allows user to create an account.
+* __Subscriptions:__ Lists all the subscriptions available to users, by clicking on a subscription the user is taken to the signup form, with the information for the selected subscription prefilled into the form. Superusers are able to edit and delete subscriptions from this page.
+* __Subscriptions Information:__ Encourages signups by making all the information clear and accessible to the user. Hiding no details from them, building trust with customer and business.
+* __Edit Subscription:__ A superuser can access this page that is a prefilled form of the selected subscription, pressing the update button will update the selected subscription.
+* __Delete Subscription:__ Superusers have access to a delete link once pressed will remove that subscription from the database.
+* __Signup Form:__ Asks the user to input their information for the database, after signup is complete the subscription is attached to the user's profile.
+* __Stripe Payment:__ Allows users to pay for their subscription in a secure manner, by inputting their payment information.
+* __Remember Me:__ After the form is submitted if checked will attach the user's details to their profile and can be accessed by the database, users are able to update this information from their profile.
+* __Payment Success:__ Informs the user that a confirmation email has been sent to email address used in the form on the page before, and links them to the home page.
+* __Categories:__ Superusers can view this page, it contains all the categories within the database, there are edit and delete links for all categories.
+* __Edit Categories:__ Superusers have access to the edit page similar to the edit subscription is a prefilled form with the categories information, altering the information and pressing the update button will update the information stored in the database.
+* __Delete Categories:__ If the user is a superuser they can delete categories, removing the instance from the database.
+* __Slides:__ A tabular view of all the slide rotating within the slideshow on the home page. This page is only accessible by superusers.
+* ___Edit Slides:__ Allows a superuser to edit a slide within the slideshow.
+* __Delete Slide:__ A superuser is able to delete a slide from the database.
+* __Profile:__ All users after they have signed up for an account have access to their own profile. This holds personal information for the user, as well as their subscription history.
+* __Default Information:__ A form that can be prefilled if the user checked the remember me box, the form will be prefilled with that data. This form can be updated with new information of the user. Being accessible by the signup form.
+* __Subscription History:__ Holds all of the subscriptions that the user has signed up for, they are presented in a table that is easy to view on desktop and mobile.
+
 ### Features to Implement
+
+* __Contact Us:__ This feature would allow users to contact the business directly through an email. This would be done through a form, once filled out sends an email to the business.
+* __Subscription Time Out:__ This would inform the user when a subscription has timed out and needs renewing, would also greyed out an outdated subscription.
+* __Cancel Subscription:__ Would allow a user to cancel a subscription early through the profile view.
 
 ## Technologies Used
 * [Lucidchart](https://lucidchart.zendesk.com/hc/en-us): Used to make wireframes.
@@ -105,11 +135,48 @@ Lions achieves these goals by:
     3. Click left and right arrows to change image 
     4. Image change to next or previous image 
 
-2. Remember My Details:
-    ...
-
 This didn't work the first few attempts, this was due to the confusion between the jinja templating language and the django template language. After some research I used forloop.counter, over the 
 jinja loop.index. After this change was made the carousel worked as expected allowing for admins to add new carousel slides without consulting an engineer.
+
+2. Subscriptions:
+    1. Load subscriptions page
+    2. select first subscription / loads signup form
+    3. ensure link contains subscription_id
+    4. Ensure price to be charged is correct
+    5. Repeat for each subscription
+
+The process for getting the price into the payment intent took many forms, this will be covered more in the signup testing. The final form that it took was much more streamlined.
+
+3. Categories:
+    1. Sign into non superuser account, making sure categories is not a visible link
+    2. Sign into superuser account, making sure the catiegories link is visible
+    3. Load categories page
+    4. Ensure all categories are visible
+
+3. Slides:
+    1. Sign into non superuser account, making sure Slides is not a visible link
+    2. Sign into superuser account, making sure the Slides link is visible
+    3. Load Slides page
+    4. Ensure all Slides are visible
+
+4. Profile:
+    1. Ensure profile link is not accessible by a non user, by not being logged in
+    2. Create an account through the login page
+    3. Load profile page
+
+5. Default Information Form:
+    1. Load profile page and ensure form loads correctly, from django forms
+    2. Fill out form
+    3. Alter fields, into nonvalid data, submit form, form should reject
+    4. Fill in fields with valid data, submit form, form submits
+    5. Refresh page to ensure information persists
+
+6. Subscription History:
+    1. Load profile page
+    2. Ensure table loads correctly
+    3. 
+    
+
 
 ### Differences Between Desktop and Mobile Versions
 

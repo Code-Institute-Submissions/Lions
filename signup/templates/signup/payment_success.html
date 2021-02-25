@@ -3,12 +3,12 @@
 
 {% block content %}
 <div class="bg-vd-brown">
-    <div class="container">
+    <div class="container p-4">
         <h2>Thankyou</h2>
-    </div>
-    <div>
-        <p>Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
-        <p>Your subscription for {{ order.subscription_type }} was successful! We look forward to seeing you.</p>
+        <div>
+            <p>Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
+            <p>Your subscription for {{ order.subscription_type }} was successful! We look forward to seeing you.</p>
+        </div>
     </div>
     {% if from_profile %}
         <a href="{% url 'profile' %}" class="btn btn-d-bronze">
@@ -18,12 +18,17 @@
             </span>
         </a>
     {% else %}
-        <a href="{% url 'home' %}" class="btn btn-d-bronze">
-            <span class="icon">
-                <i class="fas fa-home"></i>
-                <span>Home</span>
-            </span>
-        </a>
+        <div class="col-12">
+            <div class="container text-center p-4">
+                <a href="{% url 'home' %}" class="lg-btn btn btn-d-bronze text-smoky-black">
+                    <span class="icon-smoky-black">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </span>
+                </a>
+            </div>
+        </div>
     {% endif %}
 </div>    
 {% endblock %}
+

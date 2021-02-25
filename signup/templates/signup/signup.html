@@ -5,37 +5,34 @@
 <div class="bg-vd-brown">
     <div class="container">
         <h2>Signup Form</h2>
-    </div>
-    <div>
-        <p>Fill out the form below to finish signing up for your subscription</p>
-        <form action="{% url 'signup' sub_id %}" method="POST" id="signup-form">
-            {% csrf_token %}
-            <div>
-                {{ signup_form|crispy }}
-            </div>
-            <!-- Stripe card element will go here -->
-            <div id="card-element"></div>
+        <div>
+            <p>Fill out the form below to finish signing up for your subscription</p>
+            <form class="p-4" action="{% url 'signup' sub_id %}" method="POST" id="signup-form">
+                {% csrf_token %}
+                <div class="my-2">
+                    {{ signup_form|crispy }}
+                </div>
+                <!-- Stripe card element will go here -->
+                <div id="card-element"></div>
 
-            <!-- Stripe errors display here -->
-            <div id="card-errors" role="alert"></div>
-            
-            <!-- from https://github.com/ckz8780/boutique_ado_v1/blob/f5ff37a673daa3b9e04fbfade263316198fd96c9/checkout/templates/checkout/checkout.html -->
-            <div>
-                {% if user.is_authenticated %}
-                    <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
-                    <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
-                {% else %}
-                    <label class="form-check-label" for="id-save-info">
-                        <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
-                        <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
-                    </label>
-                {% endif %}
-            </div>
-            <span>Your card will be charged <strong>£{{ price|floatformat:2 }}</strong></span>
-            <button id="submit-button">
-                <span>Join Us!</span>
-            </button>
-        </form>
+                <!-- Stripe errors display here -->
+                <div id="card-errors" role="alert"></div>
+                
+                <!-- from https://github.com/ckz8780/boutique_ado_v1/blob/f5ff37a673daa3b9e04fbfade263316198fd96c9/checkout/templates/checkout/checkout.html -->
+                <div>
+                    {% if user.is_authenticated %}
+                        <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
+                        <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                    {% endif %}
+                </div>
+                <span>Your card will be charged <strong>£{{ price|floatformat:2 }}</strong></span>
+                <div class="text-center">
+                    <button id="submit-button" class="btn btn-d-bronze btn-lg m-3">
+                        <span>Join Us!</span>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>    
 {% endblock %}
