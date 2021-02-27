@@ -127,6 +127,8 @@ Lions achieves these goals by:
 * [Pillow](https://pillow.readthedocs.io/en/stable/): Was needed to use the ImageField for the subscriptions and products models.
 * [psychopg2](https://pypi.org/project/psycopg2/): A PostgreSQL database adapter for the Python programming language.
 * [dj-database-url](https://pypi.org/project/dj-database-url/): Allows the ablility to utilize the 12factor inspired DATABASE_URL environment variable to configure your Django application.
+* [Gunicorn][]
+* [Amazon Web Services]()
 
 
 ## Testing
