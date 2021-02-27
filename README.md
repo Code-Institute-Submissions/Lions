@@ -201,6 +201,22 @@ the payment intent before the user can witness it.
     4. Navigate to subscriptions page to see if the subscription has been added to the database successfully and is visible to users
 
 The process and testing of the add slide, add category and add subscriptions page are all the same, all have been tested, the issues were variable names not being changed within the views, as well as the templates.
+
+9. Email Confirmation:
+    1. Go to register view
+    2. fill out form
+    3. Wait for email to be sent
+    4. Go to link and have email confirmed
+
+This worked completely fine during development, but when it came to deploying the site after an account was register it returned a server error. The solution incolved checking variables names; where one was incorrect; and refactoring the order of the code.
+
+10. Stripe Payment:
+    1. Go to subscriptions page, select subscription
+    2. fill out signup form, with test card details
+    3. Be taken to payment success page
+    4. Go to Stripe's development tab to ensure payment has gone through
+
+My approuch in using Stripe is what made this difficult, I originally wanted to have a 3 step sign up process. This was cut short when I struggled with getting the right price in the payment intent when passing variables through views and cookies. In the end it was for the best as keeping payment amounts in cookie isn't the best practise.
     
 ### Differences Between Desktop and Mobile Versions
 
