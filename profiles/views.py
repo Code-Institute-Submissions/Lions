@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404
-from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import UserProfile
@@ -20,9 +19,6 @@ def profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Profile updated successfully")
-        else:
-            messages.error(request, "Failed to update profile, please ensure the form is valid.")
-
     subscriptions = profile.subscriptions.all()
     form = UserProfileForm(instance=profile)
 

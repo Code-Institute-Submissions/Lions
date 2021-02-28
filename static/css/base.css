@@ -122,6 +122,10 @@ form input, button, p{
 
 /********************************* index */
 
+.carousel-container {
+    padding: 0;
+}
+
 .carousel img {
     height: 440px;
 }
@@ -171,7 +175,19 @@ form input, button, p{
 /********************************* Media Queries */
 
 @media (max-width: 768px) {
-    .carousel img{
+    .carousel img {
         height: 300px;
+    }
+}
+
+@media (min-width: 992px) {
+    .carousel-container {
+        padding: 0 100px;
+    }
+}
+
+@media (min-width: 1500px) {
+    .carousel-container {
+        padding: 0 200px;;
     }
 }

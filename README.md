@@ -40,7 +40,7 @@ Lions achieves these goals by:
  
 Lions achieves these goals by:
  
-* Lions thrive on presenting an environment where all feel welcome, this is done by adding additional options where necessary to help all customers feel welcome, such as the "Other" gender field. And omitting any fields including race and other sensitive information users may be afraid to pass on. This is allow everyone to feel comfortable in the environment that Lions is creating.
+* Lions thrive on presenting an environment where all feel welcome, this is done by adding additional options where necessary to help all customers feel welcome, such as the "Other" gender field. And omitting any fields including race and other sensitive information users may be afraid to pass on. This allows everyone to feel comfortable in the environment that Lions is creating.
 * Staff are able to Create, Read, Update and Delete the "Categories", "Subscriptions" and "Slides" fields within the app, rather than needing to navigate to the admin. The forms are simple and clear for new and old staff to make use of.
 * Django allows for an easily accessible database storing all the information staff would want to get their hands on. Going above the initial subscriptions options.
  
@@ -201,7 +201,8 @@ the payment intent before the user can witness it.
     3. Click add subscription button
     4. Navigate to subscriptions page to see if the subscription has been added to the database successfully and is visible to users
  
-The process and testing of the add slide, add category and add subscriptions page are all the same, all have been tested, the issues were variable names not being changed within the views, as well as the templates.
+The process and testing of the add slide, add category and add subscriptions page are all the same, all have been tested, the issues were variable names not being changed within the views, 
+as well as the templates.
  
 9. Email Confirmation:
     1. Go to register view
@@ -209,7 +210,8 @@ The process and testing of the add slide, add category and add subscriptions pag
     3. Wait for email to be sent
     4. Go to link and have email confirmed
  
-This worked completely fine during development, but when it came to deploying the site after an account was registered it returned a server error. The solution involved checking variables names; where one was incorrect; and refactoring the order of the code.
+This worked completely fine during development, but when it came to deploying the site after an account was registered it returned a server error. The solution involved checking variables names; 
+where one was incorrect; and refactoring the order of the code.
  
 10. Stripe Payment:
     1. Go to subscriptions page, select subscription
@@ -217,12 +219,13 @@ This worked completely fine during development, but when it came to deploying th
     3. Be taken to payment success page
     4. Go to Stripe's development tab to ensure payment has gone through
  
-My approach in using Stripe is what made this difficult, I originally wanted to have a 3 step sign up process. This was cut short when I struggled with getting the right price in the payment intent when passing variables through views and cookies. In the end it was for the best as keeping payment amounts in cookies isn't the best practise.
+My approach in using Stripe is what made this difficult, I originally wanted to have a 3 step sign up process. This was cut short when I struggled with getting the right price in 
+the payment intent when passing variables through views and cookies. In the end it was for the best as keeping payment amounts in cookies isn't the best practise.
     
 ### Differences Between Desktop and Mobile Versions
  
 * __Navbar:__ On the desktop version the navbar stretches across the top of the screen with all the links visible, whereas on the mobile version the navbar is shrunk down into a button that can expand to reveal all the links.
-* __Home Page:__ The __Why Train at Lions__ blocks go from being side by side to being on top of eachother to avoid the elements becoming too squished. The carousel's height on screen smaller than 768px becomes 300px, rather than 440px.
+* __Home Page:__ The __Why Train at Lions__ blocks go from being side by side to being on top of eachother to avoid the elements becoming too squished. The carousel's height on screen smaller than 768px becomes 300px, rather than 440px. The carousel container gives different padding depending on the size of the screen, going from 0px on a mobile, 100px on medium desktops and 200px on larger screens.
 * __Subscriptions Page:__ The list of available subscriptions and the text elements sit next to each other, but as the available screen size reduces the element go on top of eachother.
 * __Profile Page:__ The default details form and the subscription history are side by side on a large desktop, but go to sitting on top of each other on smaller screens.
  
@@ -270,11 +273,11 @@ git clone https://github.com/FabianMarsh/lions
  
 To deploy __lions__ to Heroku take the following steps
  
-1. Create a requirements.txt file using the terminal command pip3 freeze > requirements.txt .
-2. Create a Procfile using the terminal command echo web: python3 app.py > Procfile .
+1. Create a requirements.txt file using the terminal command pip3 freeze > requirements.txt.
+2. Create a Procfile using the terminal command echo web: python3 app.py > Procfile.
 3. git add , git commit , and git push using the terminal commands to push to Github.
 4. Sign into or register to [Heroku](https://dashboard.heroku.com/apps).
-5. Create a new app on Heroku by clicking the "New" button in the dashboard. Give it a bespoke name and set the region to Europe
+5. Create a new app on Heroku by clicking the "New" button in the dashboard. Give it a bespoke name and set the region to the closest to you.
 6. From the Heroku dashboard of the newly created application, click on "Deployment method" and select Github.
 7. Confirm the linking of Heroku and the GitHub repository.
 8. Within the Heroku dashboard for the application, click on "Settings" then "Reveal Config Vars".
@@ -282,21 +285,65 @@ To deploy __lions__ to Heroku take the following steps
  
 Key | Value
 --- | -----
-DEBUG | FALSE
-IP | 0.0.0.0
-PORT | 5000
-SECRET_KEY | <your_secret_key>
-MONGO_URI | mongodb+srv://FabianM:2DzJy3w4S9o191zD@my-first-cluster.lyiaq.mongodb.net/dnd_character_creator?retryWrites=true&w=majority
-MONGO_DBNAME | dnd_character_creator
- 
-* To get your MONGO_URI read the MongoDB Atlas documentation [here](https://docs.mongodb.com/manual/reference/connection-string/)
+AWS_ACCESS_KEY_ID | <your_access_key_id>
+AWS_SECRET_ACCESS_KEY | <your_secret_access_key> 
+DATABASE_URL | <your_database_url> 
+EMAIL_HOST_PASS | <your_email_password> 
+EMAIL_HOST_USER | <your_email> 
+SECRET_KEY | <your_secret_key> 
+STRIPE_PUBLIC_KEY | <your_public_key> 
+STRIPE_SECREY_KEY | <your_stripe_secret_key> 
+USE_AWS | True
  
 10. In the dashboard click "Deploy"
+11. In the "Manual Deployment" section of this page, make sure the master branch is selected and click "Deploy Branch".
  
-11. In the "Manual Deployment" section of this page, make sure the master branch is selected and click on "Deploy Branch".
+12. Go to [Amazon Web Services](https://aws.amazon.com/), and create an account.
+13. Search for the S3 service, within the services menu.
+14. Click create bucket. 
+15. Give it a name, select the region closest to you, uncheck block all public, and check the acknowledge box, finally click create bucket.
+16. Click on your new bucket, and navigate to the properties tab, static website hosting, and check use this bucket to host a website.
+17. Set index document and error document to some default values, such as index.html and error.html and save.
+18. Going to the permissions tab, then CORS configuration, copy and paste the code, indent correctly and click save. 
+    * Note as of the writing of this document this code is relevant, Amazon Web Services may have updated, and the code outdated.
  
-12. The site has been successfully deployed
+[
+  {
+      "AllowedHeaders": [
+          "Authorization"
+      ],
+      "AllowedMethods": [
+          "GET"
+      ],
+      "AllowedOrigins": [
+          "*"
+      ],
+      "ExposeHeaders": []
+  }
+]
  
+19. Navigating to the bucket policy tab, select policy generator.
+20. Set the following values. And add a statement, then generate policy and copy and paste the policy into the policy editor. Before saving the policy at the end of your Resource value add a "/*" and save.
+    * Select Type of Policy: S3 Bucket Policy
+    * Principal: *
+    * Actions: GetObject
+    * Amazon Resource Name (ARN): <your_ARN>
+        * You can find this on the Bucket Policy tab.
+21. Navigating to the Access Control List tab set public access for everyone to List Objects.
+22. Back on the services menu search and open IAM.
+23. Within the IAM dashboard select groups, then create a new group, naming it "manage-<your-website>", click next step, until you get to the create group button.
+24. In the dashboard select policies, then create policy, in the JSON tab, select import policy and find the "AmazonS3FullAccess" policy and import it.
+25. Within the Resource value create a list and input your ARN twice, the second add a trailing "/*" to allow for files to be used. Review the policy.
+26. Going back to the groups, find the group you made earlier, within permissions, click attach policy, search the policy you just made, and attach the policy.
+27. With the users menu, in the dashboard, click add user, provide them a username, allow them programmatic access, and then click next.
+28. Add the user to the group you made, next until you get to create user. After creating a user ensure to download the .csv file, as you won't have access to this again.
+29. Within settings.py alter "AWS_STORAGE_BUCKET_NAME" to be the name of your bucket, and "AWS_S3_REGION_NAME" to your closest region.
+30. git add, git commit and git push the changes to Heroku
+31. Going back to AWS, create a media folder within S3.
+32. Within the folder select upload and supply any images you wish to use, then click next.
+33. Under manage public permission, grant read access to the objects. click through to the end and then click upload.
+34. Add this point if you do not have a [Stripe](https://stripe.com/gb) account create one, and then go to the Developer's tab and API keys, and get your Pushiable key and Secret key. And supply them to the Heroku Config Vars
+35. The site has been deployed.
  
 ## Credits
  
@@ -323,4 +370,6 @@ Text used within the project came from the following sources:
 * [thegym](https://www.thegymgroup.com/login/): Payment, login, register
 * [Rhinos](https://www.rhinosgymnasium.co.uk/): Membership Options + Why join us page
 * [LeisureSK](https://www.leisuresk.co.uk/membership-and-offers): Was used as a guide for gym membership prices.
+ 
+ 
 

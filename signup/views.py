@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from django.contrib import messages
 from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
@@ -43,9 +42,6 @@ def signup(request, sub_id):
             request.session["save_info"] = "save-info" in request.POST
             return redirect(reverse("payment_success", args=[signup.order_number]))
         else:
-            messages.error(request, "There was an error with your form. \
-            Please check your information.")
-
             return redirect("signup", sub_id=sub_id)
 
     if request.user.is_authenticated:
@@ -72,11 +68,6 @@ def signup(request, sub_id):
         amount=stripe_total,
         currency=settings.STRIPE_CURRENCY,
     )
-
-    # from https://courses.codeinstitute.net/courses/course-v1:CodeInstitute+FSF_102+Q1_2020/courseware/4201818c00aa4ba3a0dae243725f6e32/90cda137ebaa461894ba8c89cd83291a/
-    if not stripe_public_key:
-        messages.warning(request, "Stripe public key is missing. \
-        Did you forget to set it in the environment?")
 
     template = "signup/signup.html"
 
@@ -133,10 +124,6 @@ def payment_success(request, order_number):
         settings.DEFAULT_FROM_EMAIL,
         [cust_email],
     )
-
-    messages.success(request, f"Signup Successful! Your order number is {order_number}.\
-    A confirmation email will be sent to {order.email}.")
-
 
     template = "signup/payment_success.html"
     context = {
