@@ -249,7 +249,7 @@ To clone this project into Gitpod you will need:
  
 After follow these steps:
  
-1. install the [Gitpod Browser Extension](https://gitpod.io)for Chrome.
+1. install the [Gitpod Browser Extension](https://gitpod.io) for Chrome.
 2. After installation, restart the browser.
 3. Log into your Gitpod account.
 4. Navigate to the [Github repository](https://github.com/FabianMarsh/lions).
