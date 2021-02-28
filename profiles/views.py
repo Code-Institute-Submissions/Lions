@@ -18,7 +18,6 @@ def profile(request):
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, "Profile updated successfully")
     subscriptions = profile.subscriptions.all()
     form = UserProfileForm(instance=profile)
 

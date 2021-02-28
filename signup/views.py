@@ -66,7 +66,7 @@ def signup(request, sub_id):
     stripe.api_key = stripe_secret_key
     intent = stripe.PaymentIntent.create(
         amount=stripe_total,
-        currency="gbp",
+        currency=settings.STRIPE_CURRENCY,
     )
 
     template = "signup/signup.html"
