@@ -4,8 +4,6 @@ from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from .forms import UserProfileForm
 
-from signup.models import SubscriptionDetails
-
 # Create your views here.
 
 
