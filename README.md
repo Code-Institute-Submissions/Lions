@@ -370,6 +370,3 @@ Text used within the project came from the following sources:
 * [thegym](https://www.thegymgroup.com/login/): Payment, login, register
 * [Rhinos](https://www.rhinosgymnasium.co.uk/): Membership Options + Why join us page
 * [LeisureSK](https://www.leisuresk.co.uk/membership-and-offers): Was used as a guide for gym membership prices.
- 
- 
-
