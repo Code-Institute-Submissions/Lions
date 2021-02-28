@@ -10,25 +10,6 @@
             <p>Your subscription for {{ order.subscription_type }} was successful! We look forward to seeing you.</p>
         </div>
     </div>
-    {% if from_profile %}
-        <a href="{% url 'profile' %}" class="btn btn-d-bronze">
-            <span class="icon">
-                <i class="fas fa-chevron-left"></i>
-                <span>Back to Profile</span>
-            </span>
-        </a>
-    {% else %}
-        <div class="col-12">
-            <div class="container text-center p-4">
-                <a href="{% url 'home' %}" class="lg-btn btn btn-d-bronze text-smoky-black">
-                    <span class="icon-smoky-black">
-                        <i class="fas fa-home"></i>
-                        <span>Home</span>
-                    </span>
-                </a>
-            </div>
-        </div>
-    {% endif %}
 </div>    
 {% endblock %}
 
